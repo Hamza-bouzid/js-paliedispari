@@ -5,7 +5,6 @@ Sommiamo i due numeri
 Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto.
 */
-
 let pariDispari = prompt("pari o dispari?");
 let numero = parseInt(prompt("Scegli un numero"));
 
@@ -14,11 +13,6 @@ function numeroRandom() {
 }
 let numeroPc = numeroRandom();
 let somma = numero + numeroPc;
-
-console.log("Hai scelto:", pariDispari);
-console.log("Il numero che hai scelto:", numero);
-console.log("Il numero generato dal Pc:", numeroPc);
-console.log("La somma dei due numeri:", somma);
 
 function checkNumber() {
   if (somma % 2 != 0) {
@@ -30,10 +24,27 @@ function checkNumber() {
   return somma;
 }
 
-let numberChecked = checkNumber();
+const container = document.getElementById("container");
+container.innerHTML = `
+<ul>
+ <li>Hai scelto: <span>${pariDispari.toLowerCase()}</span></li>
+ <li>Il numero che hai scelto: <span>${numero}</span></li>
+ <li>Il numero generato dal Pc: <span>${numeroPc}</span></li>
+ <li>La somma dei due numeri: <span>${somma}</span></li>
+<ul>
+`;
 
-if (numberChecked == pariDispari) {
-  console.log("Hai Vinto :) il numero è:" + " " + numberChecked);
+let numberChecked = checkNumber();
+if (numberChecked == pariDispari.toLowerCase()) {
+  container.innerHTML += `
+<ul>
+ <li class="win">Hai Vinto :) il numero è ${numberChecked}</li>
+<ul>
+`;
 } else {
-  console.log("Hai Perso :( il numero è:" + " " + numberChecked);
+  container.innerHTML += `
+  <ul>
+   <li class="lose">Hai Perso :( il numero è ${numberChecked}</li>
+  <ul>
+  `;
 }
