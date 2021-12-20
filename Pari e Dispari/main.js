@@ -6,7 +6,24 @@ Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto.
 */
 let pariDispari = prompt("pari o dispari?");
-let numero = parseInt(prompt("Scegli un numero"));
+let numero;
+
+function controlloNumero() {
+  if (numero > 5 || numero < 1) {
+    do {
+      numero = parseInt(prompt("DEVI Scegli un numero da 1 a 5!"));
+    } while (numero > 5 || numero < 1);
+  }
+}
+
+if (pariDispari.toLowerCase() == "pari" || pariDispari.toLowerCase() == "dispari") {
+  numero = parseInt(prompt("inserisce un numero da 1 a 5"));
+  controlloNumero();
+} else {
+  pariDispari = prompt("Puoi scrivere solo pari o dispari");
+  numero = parseInt(prompt("Inserisce un numero da 1 a 5"));
+  controlloNumero();
+}
 
 function numeroRandom() {
   return parseInt(Math.floor(Math.random() * 5) + 1);

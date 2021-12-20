@@ -4,7 +4,12 @@ Creare una funzione per capire se la parola inserita è palindroma
 */
 
 // Prompt per chiedere parola da inserire
-const parola = prompt("Inserisci una parola");
+let parola = prompt("Inserisci una parola");
+if (parola == "") {
+  do {
+    parola = prompt("Devi Inserire una parola");
+  } while (parola == "");
+}
 // Inserisco i vari carattteri della variabile parola all'interno di una Array
 const caratteri = [...parola];
 
